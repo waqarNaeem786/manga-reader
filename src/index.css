@@ -11,3 +11,53 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.card {
+  /* Add shadows to create the "card" effect */
+  display: inline-grid;
+  transition: 0.3s;
+  width: 18%;
+  margin: 20px;
+
+
+}
+
+/* On mouse-over, add a deeper shadow */
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  cursor: pointer;
+  text-decoration: underline
+}
+
+/* Add some padding inside the card container */
+  .container h2 {
+  padding: 2px 16px;
+}
+.search-image{
+  width: 100%;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  transition: 1s;
+}
+.search-image:hover {
+  position: relative;
+  bottom: 40px;
+  
+  cursor: pointer;
+}
+.on-search-flex{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.nav li{
+  list-style: none;
+}
+.nav a{
+  text-decoration: none;
+  color:gray;
+}
+.nav a:hover{
+  text-decoration: none;
+  background-color: lightgray;
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
