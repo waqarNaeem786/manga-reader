@@ -79,7 +79,7 @@ const click = () => {
                    
                       {res.searchArray.map(items => (
                         <div className="search-data, card" key={items.id}>
-                         <Link to={`/reader/${items.title}/${encodeURIComponent(items.link)}`}>
+                         <Link to={`/reader/${encodeURIComponent(items.link)}`}>
                           <img className="search-image" src={items.thumb} alt=""/>         
                           <div className="container" >
                           <h2>{items.title} </h2>

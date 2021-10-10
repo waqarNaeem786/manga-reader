@@ -1,5 +1,6 @@
 import Search from "./compnents/Search";
 import Reader from "./compnents/Reader";
+import  Manga  from "./compnents/Manga";
 import React from "react";
 import { ReactQueryDevtools } from 'react-query/devtools'
 
@@ -23,8 +24,8 @@ function App() {
   <Router>
      <Switch>
        <Route exact path="/" component={Search}/> 
-       <Route  path="/reader/:title/:url" component={Reader}/>
-              
+       <Route  path="/reader/:url" component={Reader}/>
+        <Route  path="/manga/:url" component={Manga}/>      
     </Switch>       
  </Router>   
     
