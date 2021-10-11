@@ -1,58 +1,55 @@
 import React,{useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
-import  axios  from "axios";
 import { Link } from 'react-router-dom';
+import onload from '../assets/onload.gif'
 
 
 
 const fetcher = async (url)=>{
-    const res = await axios({
-        url:'http://localhost:4000/getImageList',
-        method: 'POST',
-        headers:{
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-        },
-        data:{
-            url: decodeURIComponent(url)
-        }
-    }) 
+    const response = await fetch("http://localhost:4000/getImageList", {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Access-Control-Allow-Origin': '*',
+                },
+                body: JSON.stringify({
+                    url: decodeURIComponent(url)
+                }),
+              })
+              let actual = await response.json()
     // console.log(res.data)  
-    return res.data.imageList
+    return actual.imageList
 }
 
 export default function Manga() {
-    let arr = []
-    const [data, setData] = useState()
+    const [data, setData] = useState([])
     useEffect(async () => {
         setData(await fetcher(url))
         
     }, [])
     // console.log(data)
-    arr.push(data)
-    // console.log(arr)
-    const {url} = useParams()
+   
+    const {url, back} = useParams()
+    
     return (
+
         <div>
-            <Link to="/reader">
+            <div>
+            <Link className='link' to={`/reader/${back}`}>
                 back
             </Link>
-            
-           { 
-           arr.map(e=>(
-               
-               <img src={e} alt="" />
-               
-    ))
+            </div>
              
-           } 
+            
+            {data.length === 0? <img src={onload} alt="" />:
+	             data.map((s, i) => <img key={i} src={s} alt="" />)
+	        }
            
 
             
                 
             
-            <p>{decodeURIComponent(url)}</p>
-            <h1>Hello</h1>          
+                  
         </div>
     )
 }

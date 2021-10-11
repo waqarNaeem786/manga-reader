@@ -8,7 +8,6 @@ import Genre from "./Genre"
 import {
     Link
   } from "react-router-dom";
-// import {searchRes, sData} from '../api/searchApi'
 
 export default function Search() {
     //Hooks
@@ -48,21 +47,28 @@ export default function Search() {
 const { isLoading, isError, isSuccess, error, mutate} = useMutation(searchRes, {retry: 5} )
 
 //Input Button Function
-const click = () => {
-  if(value.length !== 0){
-    mutate({value})
-  }else{
-    alert("Search bar is Empty")
-  }
+function handleChange(e) {
+  setValue(e.target.value)
 }
+const handleKey = () => {
+  
+    mutate({value})
+  
+}
+const click = e => {
+    if (e.keyCode === 13) {
+      this.btn.click();
+    }
+  };
+
 
     return (
         <div>                           
-                <input type="text" value={value} onChange={e=>{setValue(e.target.value)}} />
+                <input type="text" value={value} onChange={handleChange} onKeyPress={handleKey} />
                 <input type="submit" value="submit" onClick={click} /> 
-              <Genre />
+              
             <div> 
-             
+            <Genre /> 
                
                  
                   {isLoading
@@ -77,7 +83,7 @@ const click = () => {
                  {isSuccess ? 
                   <div className="on-search-flex">
                    
-                      {res.searchArray.map(items => (
+                      { res.searchArray.map(items => (
                         <div className="search-data, card" key={items.id}>
                          <Link to={`/reader/${encodeURIComponent(items.link)}`}>
                           <img className="search-image" src={items.thumb} alt=""/>         
@@ -92,7 +98,7 @@ const click = () => {
                   </div> : <p></p>}
                  
                   
- 
+                 
                  
                         
               </div>          

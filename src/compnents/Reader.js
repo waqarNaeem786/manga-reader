@@ -2,6 +2,7 @@ import React from 'react'
 import {useState, useEffect} from 'react'
 import { Link , useParams} from 'react-router-dom'
 import axios from 'axios'
+import onload from '../assets/onload.gif'
 
 
 async function fetcher(url) {
@@ -30,7 +31,7 @@ const { url } = useParams()
 const [data, setData] = useState([]) 
      
  
-console.log(data)
+// console.log(data)
     return (
         <div>
             <Link to="/">
@@ -40,16 +41,19 @@ console.log(data)
            <div>
              
            </div>
-           {data.length === 0 ? <p>loading...</p>:
+           {data.length === 0 ? <img src={onload} alt="" />:
             <div>
             <img src={data.thumb} alt="" />
             <h3>{data.title}</h3>
              <p>
                {data.desc}
             </p> 
-            <div>{data.chapterList.map(element => (
-              <Link to={`/manga/${encodeURIComponent(element.chapterLink)}`}>
-              <p>{element.chapterTitle}</p>
+            <div>{data.chapterList.map((element) => (
+              <Link to={`/manga/${encodeURIComponent(element.chapterLink)}/${url}`}>
+              <div>
+               <p>{element.chapterTitle}</p>
+              </div>
+             
               </Link>
              
               

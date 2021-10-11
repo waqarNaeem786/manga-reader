@@ -1,73 +1,75 @@
 import React from 'react'
-import { useMutation } from 'react-query'
-import { useState } from 'react'
-import {onload} from '../assets/onload.gif'
+import { useState, useEffect } from 'react'
+import onload from '../assets/onload.gif'
+
+
 export default function Genre() {
+  const [value, setValue] = useState("MGFX")
+  useEffect(async() => {
+    try {
+      const response = await fetch("http://localhost:4000/getMangaList", {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
+        body: JSON.stringify({
+          src: value,
+          page: 1 
+        }),
+      })
+      let actual = await response.json()
+       setGenra(actual)
+    } catch (error) {
+      console.error(error)
+    }
+  }, [value])
+  const [genera, setGenra] = useState([])
+   
 
-    const [genera, setGenra] = useState()
-
-    const searchGenre = async (e) => {
-        console.log(e.t_value)
-        try {
-            const response = await fetch("http://localhost:4000/getGenres", {
-              method: 'POST',
-              headers: {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*',
-              },
-              body: JSON.stringify({
-                src: e.t_value 
-              }),
-            })
-            let actual = await response.json()
-             setGenra(actual) 
-             console.log(genera)
-          } catch (error) {
-            console.error(error)
-          }
-         
+    console.log(genera)
+    
+    function mgfx() {
+      setValue("MGFX")
+    }
+    function mgjr (){
+      setValue("MGJR")
+    }
+    function mgse (){
+      setValue("MGSE")
+    }
+     function mghr (){
+      setValue("MGHR")
+    }
+    function mgdx (){
+      setValue("MGDX")
+    }
+    function rco (){
+      setValue("RCO")
     }
 
-    const { isLoading, isError, isSuccess, error, mutate} = useMutation(searchGenre, {retry: 5} )
-
-    function onchange(e){
-        let t_value = e.target.value
-        if(t_value !== 0){
-            mutate({t_value})
-          }else{
-            alert("nothing is selected")
-          }
-    }
     return (
         <div>
-            <select onChange={onchange}>
-                <option value="MGFX">mangaFox</option>
-                <option value="MGJR">mangaJar</option>
-                <option value="MGSE">mangaSee</option>
-                <option value="MGHR">mangaHere</option>
-                <option value="MGDX"> mangaDex</option>
-                <option value="RCO">readComicOnline</option>  
-            </select>
-
-            {isLoading
-                      ? <img className="onLoad" src={onload} alt={onload}/>: ""
-                  }
-
-                  {
-                    isError
-                    ? error : ""
-                  }
-
-                  {isSuccess ? 
+          
+          <button onClick={mgfx}>MangaFox</button>
+          <button onClick={mgjr}>MangaJar</button>
+          <button onClick={mgse}>MangaSee</button>
+          <button onClick={mghr}>MangaHere</button>
+          <button onClick={mgdx}>MangaDex</button>
+          <button onClick={rco}>ReadComicOnline</button>
+                             
                   <div className="on-search-flex">
-                      { genera.genreList.length !==0 ? genera.genreList.map(items => (
-                        <div className="search-data">
-                        <button key={items.id} href={items.link}>{items.title}</button>
+                      { genera.length === 0 ? <img src={onload} alt="" /> :
+                        
+                        genera.LatestManga.map((items, i) => (
+                        <div className="">
+                          <img key={i} src={items.thumb} alt="" />
+                          <p>{items.title}</p>
                         </div>
-                       ) ) : alert(" you havn't selected anything ") } 
+                       ) ) }  
                         
                       
-                  </div> : <p></p>} 
+                  </div>  
         </div>
 
        
