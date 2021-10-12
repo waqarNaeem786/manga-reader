@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: gray;
 }
 
 code {
@@ -17,15 +18,30 @@ code {
   transition: 0.3s;
   width: 18%;
   margin: 20px;
-
-
+  background-color: black;
+  text-decoration: none;
+  box-shadow: 0 8px 16px 0 rgb(0 0 0 / 20%);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
 }
 
+.card a{
+  text-decoration: none;
+  color: purple;
+
+}
+.card a:hover{
+  text-decoration: underline;
+}
 /* On mouse-over, add a deeper shadow */
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   cursor: pointer;
-  text-decoration: underline
+  text-decoration: underline;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
 }
 
 /* Add some padding inside the card container */
@@ -49,18 +65,7 @@ code {
   flex-wrap: wrap;
   justify-content: space-around;
 }
-.nav li{
-  list-style: none;
-}
-.nav a{
-  text-decoration: none;
-  color:gray;
-}
-.nav a:hover{
-  text-decoration: none;
-  background-color: lightgray;
-  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
-}
+
 
 .link{
     position: absolute;
@@ -70,4 +75,5 @@ code {
     border-radius: 20px;
     background: black;
     color: white;
+    position: fixed;
 }

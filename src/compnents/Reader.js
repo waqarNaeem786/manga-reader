@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 import { Link , useParams} from 'react-router-dom'
 import axios from 'axios'
 import onload from '../assets/onload.gif'
+import '../styles/onLoad.css'
 
 
 async function fetcher(url) {
@@ -41,9 +42,10 @@ const [data, setData] = useState([])
            <div>
              
            </div>
-           {data.length === 0 ? <img src={onload} alt="" />:
+           {data.length === 0 ? <img className="onLoad" src={onload} alt="" />:
             <div>
             <img src={data.thumb} alt="" />
+            <h2>{data.author}</h2>
             <h3>{data.title}</h3>
              <p>
                {data.desc}

@@ -2,10 +2,11 @@ import React,{useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import onload from '../assets/onload.gif'
+import '../styles/onLoad.css'
 
 
 
-const fetcher = async (url)=>{
+const fetcher = async (url)=>{    
     const response = await fetch("http://localhost:4000/getImageList", {
                 method: 'POST',
                 headers: {
@@ -17,7 +18,6 @@ const fetcher = async (url)=>{
                 }),
               })
               let actual = await response.json()
-    // console.log(res.data)  
     return actual.imageList
 }
 
@@ -27,7 +27,7 @@ export default function Manga() {
         setData(await fetcher(url))
         
     }, [])
-    // console.log(data)
+    console.log(data)
    
     const {url, back} = useParams()
     
@@ -41,7 +41,7 @@ export default function Manga() {
             </div>
              
             
-            {data.length === 0? <img src={onload} alt="" />:
+            {data.length === 0? <img className="onLoad" src={onload} alt="" />:
 	             data.map((s, i) => <img key={i} src={s} alt="" />)
 	        }
            

@@ -2,8 +2,7 @@ import Search from "./compnents/Search";
 import Reader from "./compnents/Reader";
 import  Manga  from "./compnents/Manga";
 import React from "react";
-import { ReactQueryDevtools } from 'react-query/devtools'
-
+import logo from './assets/download.jpeg'
 
 
 import {
@@ -20,17 +19,17 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
     <div className="App">
-
+      <img src={logo} alt="" />
+  {/* Routes*/}    
   <Router>
-     <Switch>
-       <Route exact path="/" component={Search}/> 
-       <Route  path="/reader/:url" component={Reader}/>
-        <Route  path="/manga/:url/:back" component={Manga}/>      
-    </Switch>       
+    <Switch>
+    <Route exact path="/" component={Search}/>
+      <Route  path="/reader/:url" component={Reader}/>
+      <Route  path="/manga/:url/:back" component={Manga}/>
+    </Switch>      
  </Router>   
     
     </div>
-      <ReactQueryDevtools initialIsOpen={false} />
 
     </QueryClientProvider>
 

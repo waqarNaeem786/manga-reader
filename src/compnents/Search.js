@@ -35,7 +35,7 @@ export default function Search() {
                 setRes("OOOooops")
               }else{
                 setRes(actual)
-                console.log(res)
+                // console.log(res)
               }
                 
             } catch (error) {
@@ -63,12 +63,13 @@ const click = e => {
 
 
     return (
-        <div>                           
-                <input type="text" value={value} onChange={handleChange} onKeyPress={handleKey} />
+
+      <div>
+                <input placeholder="Search..." type="text" value={value} onChange={handleChange} onKeyPress={handleKey} />
                 <input type="submit" value="submit" onClick={click} /> 
-              
+              {value.length === 0 ? <Genre /> : ""}  
+
             <div> 
-            <Genre /> 
                
                  
                   {isLoading
