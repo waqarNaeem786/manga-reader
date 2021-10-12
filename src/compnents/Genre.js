@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom'
 export default function Genre() {
   //hooks
   const [loading, setLoading] = useState(false)
-  const [value, setValue] = useState("MGFX")
+  const [value, setValue] = useState("MGJR")
 
   //expermiment
  

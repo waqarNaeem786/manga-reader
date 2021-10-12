@@ -36,7 +36,7 @@ const [data, setData] = useState([])
     return (
         <div>
             <Link to="/">
-                Home
+            <img className="logo-reader" src="https://cdn-icons-png.flaticon.com/128/2314/2314904.png" alt="" />    
             </Link>
             
            <div>

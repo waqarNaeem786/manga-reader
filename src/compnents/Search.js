@@ -64,10 +64,15 @@ const click = e => {
 
     return (
 
-      <div>
-                <input placeholder="Search..." type="text" value={value} onChange={handleChange} onKeyPress={handleKey} />
-                <input type="submit" value="submit" onClick={click} /> 
-              {value.length === 0 ? <Genre /> : ""}  
+      <div> 
+      <img className="logo" src="https://cdn-icons-png.flaticon.com/128/2314/2314904.png" alt="" />
+        
+        <div className="input-flex">
+            <input className="input" placeholder="Search..." type="text" value={value} onChange={handleChange} onKeyPress={handleKey} />
+              <input className="input-btn" type="submit" value="Search" onClick={click} /> 
+        </div>
+        {value.length === 0 ? <Genre /> : ""}
+                 
 
             <div> 
                
@@ -85,7 +90,7 @@ const click = e => {
                   <div className="on-search-flex">
                    
                       { res.searchArray.map(items => (
-                        <div className="search-data, card" key={items.id}>
+                        <div className="search-data card" key={items.id}>
                          <Link to={`/reader/${encodeURIComponent(items.link)}`}>
                           <img className="search-image" src={items.thumb} alt=""/>         
                           <div className="container" >
