@@ -2,7 +2,6 @@ import Search from "./compnents/Search";
 import Reader from "./compnents/Reader";
 import  Manga  from "./compnents/Manga";
 import React from "react";
-// import logo from './assets/download.jpeg'
 
 
 import {
