@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import onload from '../assets/onload.gif'
 import {Link} from 'react-router-dom'
+import { Url } from './baseUrl'
+
 
 export default function Genre() {
   //hooks
@@ -15,7 +17,7 @@ export default function Genre() {
   useEffect(async() => {
     setLoading(true)
     try {
-      const response = await fetch("http://localhost:4000/getMangaList", {
+      const response = await fetch(`${Url}/getMangaList`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

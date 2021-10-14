@@ -3,11 +3,13 @@ import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import onload from '../assets/onload.gif'
 import '../styles/onLoad.css'
+import { Url } from './baseUrl'
+
 
 
 
 const fetcher = async (url)=>{    
-    const response = await fetch("http://localhost:4000/getImageList", {
+    const response = await fetch(`${Url}/getImageList`, {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
@@ -27,7 +29,7 @@ export default function Manga() {
         setData(await fetcher(url))
         
     }, [])
-    console.log(data)
+    // console.log(data)
    
     const {url, back} = useParams()
     
@@ -36,13 +38,17 @@ export default function Manga() {
         <div>
             <div>
             <Link className='link' to={`/reader/${back}`}>
-                back
+                <button type="button" className="btn btn-secondary">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-arrow-left" viewBox="0 0 16 16">
+                        <path fillRule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"/>
+                    </svg>
+                </button>
             </Link>
             </div>
              
             
             {data.length === 0? <img className="onLoad" src={onload} alt="" />:
-	             data.map((s, i) => <img key={i} src={s} alt="" />)
+	             data.map((s, i) => <img className="page" key={i} src={s} alt="" />)
 	        }
            
 

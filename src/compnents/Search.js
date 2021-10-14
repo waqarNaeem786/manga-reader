@@ -4,6 +4,7 @@ import {useMutation} from 'react-query'
 import onload from "../assets/onload.gif"
 import  '../styles/onLoad.css'
 import Genre from "./Genre"
+import { Url } from './baseUrl'
 
 import {
     Link
@@ -17,7 +18,7 @@ export default function Search() {
     //MutaionFn
     const searchRes = async (e) =>{
             try {
-              const response = await fetch("http://localhost:4000/search", {
+              const response = await fetch(`${Url}/search`, {
                 method: 'POST',
                 headers: {
                   'Content-Type': 'application/json',
