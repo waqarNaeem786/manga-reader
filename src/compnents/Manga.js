@@ -2,7 +2,6 @@ import React,{useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import onload from '../assets/onload.gif'
-import '../styles/onLoad.css'
 import { Url } from './baseUrl'
 
 
@@ -47,7 +46,7 @@ export default function Manga() {
             </div>
              
             
-            {data.length === 0? <img className="onLoad" src={onload} alt="" />:
+            {data.length === 0? <div className="onLoad"><img src={onload} alt="" /></div> :
 	             data.map((s, i) => <img className="page" key={i} src={s} alt="" />)
 	        }
            
