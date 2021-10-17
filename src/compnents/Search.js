@@ -27,7 +27,7 @@ export default function Search() {
                
                   type:"manga",
                   title: e.value,
-                  maxItems:1
+                  maxItems: 20
                 }),
               })
               let actual = await response.json()
