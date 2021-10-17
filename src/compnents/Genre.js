@@ -14,6 +14,7 @@ export default function Genre() {
  
 
   //fetching
+  // eslint-disable-next-line
   useEffect(async() => {
     setLoading(true)
     try {

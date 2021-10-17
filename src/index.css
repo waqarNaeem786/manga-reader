@@ -3,7 +3,8 @@ body {
   margin: 0;
   font-family: sans-serif;
   font-size: larger;
-  background-size: 100%;
+  background: url(assets/pbg.svg);
+  background-size: cover;
   color: white;
 }
 a{
@@ -14,6 +15,11 @@ a{
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+.search-icon{
+  display: block;
+  margin: 0 auto;
+  text-align: center;
 }
 .card {
   word-wrap: break-word;
@@ -75,11 +81,11 @@ code {
   cursor: pointer;
 }
 .on-search-flex{
+  width: 99%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  margin-right: -15px;
-  margin-left: -15px;
+  justify-content: center;
+  
 }
 
 
@@ -91,18 +97,20 @@ code {
 }
 
 .input{
+    height: 50px;
     outline: none;
     border-radius: 10px 0 0 10px;
     padding: 10px;
     font-size: 17px;
     border: 1px solid #202225;
-    width: 76%
+    width: 70%
 }
 
 .input-btn{
-  outline: none;
+    height: 50px;
+    outline: none;
     border-radius: 0 10px 10px 0;
-    width: 20%;
+    width: 15%;
     padding: 10px;
     background: #8816f3;
     color: white;
@@ -112,6 +120,7 @@ code {
 }
 
 .logo{
+  padding: 45px 0 0;
   position: relative;
   left: 45%;
   cursor: pointer;
@@ -154,6 +163,7 @@ code {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
 }
+
 .title-logo{
     margin: 20px;
 }
@@ -198,12 +208,20 @@ h4{
   padding: 0 0 14px;
 }
 .page{
-    width: 100%;
+    margin: 0 7% 0;
+    width: 85%;
 }
 
 @media (max-width: 500px){
   .logo{
     left: 34%;
+  }
+.reader-logo{
+  padding: 25px 0 0;
+  }
+  .page{
+    width: 100%;
+    margin: 0;
   }
 }
 

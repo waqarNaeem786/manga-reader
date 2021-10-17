@@ -7,7 +7,7 @@ import { Url } from './baseUrl'
 
 
 
-const fetcher = async (url)=>{    
+const fetcher = async (url)=>{
     const response = await fetch(`${Url}/getImageList`, {
                 method: 'POST',
                 headers: {
@@ -24,6 +24,7 @@ const fetcher = async (url)=>{
 
 export default function Manga() {
     const [data, setData] = useState([])
+    // eslint-disable-next-line
     useEffect(async () => {
         setData(await fetcher(url))
         

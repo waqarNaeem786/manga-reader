@@ -24,6 +24,7 @@ async function fetcher(url) {
       }
     
 export default function Reader() {
+// eslint-disable-next-line
  useEffect(async () => {
    setData(await fetcher(url))
    
@@ -39,12 +40,13 @@ const [data, setData] = useState([])
         
            {data.length === 0 ? <div className="onLoad" ><img src={onload} alt="" /></div>:
             <div className="row">
+              <div className="">
+
                   <Link to="/">
                   <img className="reader-logo" src="https://cdn-icons-png.flaticon.com/128/2314/2314904.png" alt="" />    
                   </Link>
                  
-              <div className="title-logo">
-                  <img className="" src={data.thumb} alt="" />
+                  <img className="title-logo img-thumbnail" src={data.thumb} alt="" />
               </div>
                 <h3 className="title">{data.title}</h3>
                       <h2>{data.author}</h2>
