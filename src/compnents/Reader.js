@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react'
 import { Link , useParams} from 'react-router-dom'
 import axios from 'axios'
 import onload from '../assets/onload.gif'
+import logo from '../assets/logo.png'
 import { Url } from './baseUrl'
 
 
@@ -40,19 +41,24 @@ const [data, setData] = useState([])
         
            {data.length === 0 ? <div className="onLoad" ><img src={onload} alt="" /></div>:
             <div className="row">
-              <div className="">
 
+            <div className="reader-logo">
                   <Link to="/">
-                  <img className="reader-logo" src="https://cdn-icons-png.flaticon.com/128/2314/2314904.png" alt="" />    
+                  <img src={logo} alt="" />    
                   </Link>
-                 
-                  <img className="title-logo img-thumbnail" src={data.thumb} alt="" />
-              </div>
-                <h3 className="title">{data.title}</h3>
-                      <h2>{data.author}</h2>
+            </div>
+                  
+                 <div className="author-thumb">
+                 <img className="title-logo img-thumbnail" src={data.thumb} alt="" />
+                 <div className="title-desc">
+                 <h3 className="title">{data.title}</h3>
+                 <h2>{data.author}</h2>
                       <p className="text">
                         {data.desc}
                       </p>
+
+                 </div>
+                 </div>
                   
 
                   

@@ -210,7 +210,16 @@ h4{
     margin: 0 7% 0;
     width: 85%;
 }
-
+.reader-logo{
+  padding: 4% 0;
+  display: flex;
+  justify-content: center
+}
+.author-thumb{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 @media (max-width: 500px){
   .logo{
     left: 34%;
@@ -221,6 +230,11 @@ h4{
   .page{
     width: 100%;
     margin: 0;
+  }
+  .author-thumb{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
   }
 }
 

@@ -4,6 +4,7 @@ import {useMutation} from 'react-query'
 import onload from "../assets/onload.gif"
 import Genre from "./Genre"
 import { Url } from './baseUrl'
+import logo from '../assets/logo.png'
 
 import {
     Link
@@ -59,13 +60,14 @@ const click = e => {
     if (e.keyCode === 13) {
       this.btn.click();
     }
+    mutate({value})
   };
 
 
     return (
 
       <div> 
-      <img className="logo" src="https://cdn-icons-png.flaticon.com/128/2314/2314904.png" alt="" />
+      <img className="logo" src={logo} alt="" />
         
         <div className="input-flex">
             <input className="input" placeholder="Search..." type="text" value={value} onChange={handleChange} onKeyPress={handleKey} />
@@ -82,7 +84,7 @@ const click = e => {
                
                  
                   {isLoading
-                      ? <img className="onLoad" src={onload} alt={onload}/>: ""
+                      ? <div className="onLoad"><img  src={onload} alt={onload}/></div>: ""
                   }
 
                   {
