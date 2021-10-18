@@ -22,8 +22,8 @@ function App() {
   <Router>
     <Switch>
     <Route exact path="/" component={Search}/>
-      <Route  path="/reader/:url" component={Reader}/>
-      <Route  path="/manga/:url/:back" component={Manga}/>
+      <Route exact  path="/reader/:url" component={Reader}/>
+      <Route exact path="/manga/:url/:back" component={Manga}/>
     </Switch>      
  </Router>   
     
