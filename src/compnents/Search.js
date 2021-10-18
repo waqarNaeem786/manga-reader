@@ -51,23 +51,31 @@ const { isLoading, isError, isSuccess, error, mutate} = useMutation(searchRes, {
 function handleChange(e) {
   setValue(e.target.value)
 }
-const handleKey = () => {
-  
+const handleKey = (e) => {
+  if(e.code === "Enter")
     mutate({value})
   
 }
 const click = e => {
     if (e.keyCode === 13) {
       this.btn.click();
+
     }
     mutate({value})
   };
 
-
+async function reload(){
+  window.location.reload()
+}
     return (
 
       <div> 
-      <img className="logo" src={logo} alt="" />
+        <div className="logo" onClick={reload}>
+        <Link to="/">
+        <img  src={logo} alt="" />
+        </Link>
+        
+        </div>
         
         <div className="input-flex">
             <input className="input" placeholder="Search..." type="text" value={value} onChange={handleChange} onKeyPress={handleKey} />
