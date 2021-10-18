@@ -119,10 +119,10 @@ code {
 }
 
 .logo{
-  padding: 45px 0 0;
-  position: relative;
-  left: 45%;
-  cursor: pointer;
+    display: flex;
+    padding: 45px 0 0;
+    cursor: pointer;
+    justify-content: center;
 }
 
 .input-flex{
@@ -221,9 +221,6 @@ h4{
   align-items: center;
 }
 @media (max-width: 500px){
-  .logo{
-    left: 34%;
-  }
 .reader-logo{
   padding: 25px 0 0;
   }
